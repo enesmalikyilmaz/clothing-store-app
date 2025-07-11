@@ -1,9 +1,16 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const cors = require('cors');
 
-app.get('/', function(req, res) {
-  res.send('Merhaba');
-});
+dotenv.config();
 
 
-app.listen(3000);
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes);
+
+module.exports = app;
