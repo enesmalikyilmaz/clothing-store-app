@@ -1,2 +1,2 @@
-# clothing-store-app
-Giyim Mağazası Web Uygulaması
+# Giyim Mağazası Web Uygulaması
+
