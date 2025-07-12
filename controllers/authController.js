@@ -18,6 +18,10 @@ exports.register = async (req, res) => {
         email,
         password: hashedPassword,
     });
+
+    return res.status(201).json({ message: "Kullanıcı oluşturuldu", user: newUser });
+
+
     };
 
 exports.login = async (req, res) => {
@@ -31,10 +35,13 @@ exports.login = async (req, res) => {
 
     const match = await bcrypt.compare(password, user.password);
 
-    if (!isMatch) {
+    if (!match) {
         return res.status(400).json({ message: "Geçersiz şifre" });
     }
 
     const token = jwt.sign({ id: user.id, role : user.role }, JWT_SECRET);
+
+    return res.status(200).json({ message: "Giriş başarılı", token });
+
 
 };
