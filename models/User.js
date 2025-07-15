@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
   role: {
     type: String,
     enum: ['user', 'admin'],
-    default: 'user'
+    default: 'admin'
   },
   password: {
     type: String,
@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
   },
   address: {
     type: String,
-    unique: true,
+    //unique: true, // test için kaldırıldı
   },
 });
 

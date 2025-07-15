@@ -39,7 +39,14 @@ exports.login = async (req, res) => {
         return res.status(400).json({ message: "Geçersiz şifre" });
     }
 
-    const token = jwt.sign({ id: user.id, role : user.role }, JWT_SECRET);
+    console.log("JWT_SECRET:", JWT_SECRET);
+
+
+    const token = jwt.sign(
+        { 
+            id: user.id, 
+            role : user.role 
+        }, JWT_SECRET, { expiresIn: '1d' });
 
     return res.status(200).json({ message: "Giriş başarılı", token });
 
