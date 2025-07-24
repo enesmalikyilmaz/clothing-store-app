@@ -1,6 +1,6 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-console.log(" ENV’den gelen URI:", process.env.MONGO_URI);
+//console.log(" ENV’den gelen URI:", process.env.MONGO_URI);
 
 const connectDB = async () =>{
   

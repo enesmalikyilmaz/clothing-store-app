@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Giyim Mağazası Basit Arayüz</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f2f2f2; }
+    input, button, select { display: block; margin-bottom: 1rem; padding: 0.5rem; width: 300px; }
+    .hidden { display: none; }
+    #output { background: white; padding: 1rem; margin-top: 1rem; border-radius: 5px; }
+    h2 { margin-top: 2rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Giyim Mağazası Basit Panel</h1>
+
+  <div id="register">
+    <h2>Kayıt Ol</h2>
+    <input type="text" id="regName" placeholder="Adınız" />
+    <input type="email" id="regEmail" placeholder="E-posta" />
+    <input type="password" id="regPassword" placeholder="Şifre" />
+    <button onclick="register()">Kayıt Ol</button>
+  </div>
+
+  <div id="login" class="hidden">
+    <h2>Giriş Yap</h2>
+    <input type="email" id="loginEmail" placeholder="E-posta" />
+    <input type="password" id="loginPassword" placeholder="Şifre" />
+    <button onclick="login()">Giriş Yap</button>
+  </div>
+
+  <div id="panel" class="hidden">
+    <h2>Giriş Yapıldı</h2>
+    <button onclick="logout()">Çıkış Yap</button>
+
+    <h3>Kategori Ekle</h3>
+    <input type="text" id="catName" placeholder="Kategori Adı" />
+    <input type="text" id="catDesc" placeholder="Kategori Açıklaması" />
+    <button onclick="addCategory()">Kategori Ekle</button>
+    <button onclick="listCategories()">Kategorileri Listele</button>
+
+    <h3>Ürün Ekle</h3>
+    <input type="text" id="prodName" placeholder="Ürün Adı" />
+    <input type="text" id="prodDesc" placeholder="Ürün Açıklaması" />
+    <input type="number" id="prodPrice" placeholder="Fiyat" />
+    <input type="number" id="prodStock" placeholder="Stok" />
+    <input type="text" id="prodImage" placeholder="Görsel Linki" />
+    <input type="text" id="prodCategory" placeholder="Kategori ID" />
+    <button onclick="addProduct()">Ürün Ekle</button>
+    <button onclick="listProducts()">Ürünleri Listele</button>
+  </div>
+
+  <div id="output"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -11,7 +11,7 @@ exports.createOrder = async (req, res) => {
     for (let item of items) {
       const product = await Product.findById(item.product);
       if (!product) {
-        return res.status(404).json({ message: `Ürün bulunamadı: ${productId}` });
+        return res.status(404).json({ message: `Ürün bulunamadı: ${item.product}` });
       }
       total += product.price * item.quantity;
     }
@@ -102,7 +102,7 @@ exports.getAllOrders = async (req, res) => {
       .populate('items.product' ,   'name price')  // sadece ürün adı ve fiyat
       .sort({ createdAt: -1 });
 
-      const response = orders.map(order => ({
+      const response = allOrders.map(order => ({
       id: order._id,
       user: order.user,
       date: order.createdAt,
